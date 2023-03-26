@@ -1,0 +1,19 @@
+@mixin flex-row($gap:1rem){
+    display: flex;
+    flex-direction: row;
+    gap:$gap
+}
+
+@mixin flex-column($gap:1rem){
+    display: flex;
+    flex-direction: column;
+    gap:$gap
+}
+
+@mixin flex-row-wrap($gap:1rem){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:$gap
+
+}

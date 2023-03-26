@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "eslint:recommended"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "jsx": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react"],
+  "rules": {
+    "semi": ["error", "always"],
+    "linebreak-style": ["warn", "windows"],
+    "quotes": ["error", "single"],
+    "indent": [1, "tab"],
+    "no-tabs": 0,
+    "jsx-quotes": ["error", "prefer-double"],
+    "arrow-body-style": ["warn"]
+  }
+}
+
+// 0 - off 1- warn  2 - error

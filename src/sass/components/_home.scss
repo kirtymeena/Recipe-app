@@ -1,0 +1,71 @@
+@use "../utils/mixin" as *;
+@use "../utils/breakpoints" as *;
+@use "../utils/variables" as *;
+
+main {
+  @include flex-column($gap: 4rem);
+  // justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background-image: url("https://cdn.pixabay.com/photo/2017/02/15/10/39/salad-2068220_1280.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  background-position: center;
+  z-index: -100;
+  h1 {
+    color: white;
+    text-align: center;
+    // margin-top: 1rem;
+    padding-block: 2rem;
+  }
+}
+
+.categories {
+  margin-top: 30rem;
+  @include flex-row-wrap();
+  @include md{
+    @include flex-row-wrap($gap:2rem);
+  }
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  color:#e5e5e5;
+  font-weight: 600;
+}
+
+.category__card {
+  cursor: pointer;
+
+  img {
+    border-left: 4px solid $red;
+    border-top: 4px solid $red;
+    border-right: 4px solid $red;
+    border-bottom: 4px solid $red;
+    aspect-ratio: 1;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    text-align: center;
+    object-fit: cover;
+    background-color: $light-yellow;
+    
+    @include md {
+      height: 4rem;
+      width: 4rem;
+      
+    }
+  }
+}
+
+.category__name{
+  display: none;
+}
+
+@include md{
+  .category__name{
+    display: block;
+  }
+}
