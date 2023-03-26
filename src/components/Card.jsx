@@ -1,24 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaRegHeart } from 'react-icons/fa';
 
 function Card({ title, mealImg }) {
-	const controls = useAnimation();
+	// const controls = useAnimation();
+	const [imageLoading, setImageLoading] = useState(true);
+	// eslint-disable-next-line no-unused-vars
+	const [pulsing, setPulsing] = useState(true);
 
-	useEffect(() => {
-		controls.start({
-			opacity: 1,
-			scale: 1,
-			transition: { duration: 0.5 }
-		});
-	}, [controls]);
+	const imageLoaded = () => {
+		setImageLoading(false);
+		setTimeout(() => setPulsing(false), 600);
+	};
 
 	return (
 		<div className="card">
 			<div className="card__thumbnail">
 				<motion.img className="meal-img" src={mealImg} alt="meal-img"
-					animate={controls}
+					initial={{ height: '12rem', opacity: 0 }}
+					animate={{
+						height: imageLoading ? '12rem' : '12rem',
+						opacity: imageLoading ? 0 : 1
+					}}
+					transition={
+						({ height: { delay: 0, duration: 0.4 } },
+						{ opacity: { delay: 0.5, duration: 0.4 } })
+					}
+					onLoad={imageLoaded}
 				/>
 			</div>
 			<div className="card__body">

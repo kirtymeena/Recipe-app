@@ -23,7 +23,8 @@
     "indent": [1, "tab"],
     "no-tabs": 0,
     "jsx-quotes": ["error", "prefer-double"],
-    "arrow-body-style": ["warn"]
+    "arrow-body-style": ["warn"],
+    "no-unused-vars" : 1
   }
 }
 
